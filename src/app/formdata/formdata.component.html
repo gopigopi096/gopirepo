@@ -1,0 +1,296 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6">
+      <form #resumeData="ngForm" (ngSubmit)="onSubmit(resumeData.value)" novalidate *ngIf="!cond">
+        <div class="from-group">
+          <h1>
+            Gopinath
+          </h1>
+        </div>
+        <div class="form-group">
+          <input type="number" name="id" [(ngModel)]="formdata.id" class="form-control" #ngModel placeholder="Enter your id">
+        </div>
+        <div class="form-group">
+          <textarea class="form-control" placeholder="enter your career objective" name="career" [(ngModel)]="formdata.career">
+          </textarea>
+        </div>
+        <div class="form-group">
+          <input type="text" name="title" [(ngModel)]="formdata.formtitle" class="form-control" #ngModel placeholder="Enter resume title">
+        </div>
+        <div class="form-group">
+          <input type="text" name="name" [(ngModel)]="formdata.name" class="form-control" #ngModel placeholder="Enter your name">
+        </div>
+        <div class="form-group">
+          <input type="number" name="age" [(ngModel)]="formdata.age" class="form-control" #ngModel placeholder="Enter your age">
+        </div>
+        <div class="form-group">
+          <input type="text" name="description" [(ngModel)]="formdata.description" class="form-control" #ngModel placeholder="Enter job description">
+        </div>
+        <div class="form-group">
+          <select name="location" [(ngModel)]="formdata.location" class="form-control" #ngModel>
+          <option value="chennai">
+            chennai
+          </option>
+          <option value="bangalore">
+            bangalore
+          </option>          
+        </select>
+        </div>
+        <div class="form-group">
+          <h1>experiences</h1>
+        </div>
+        <div class="form-group">
+          <input type="text" name="companyname" [(ngModel)]="experience.companyname" class="form-control" #ngModel placeholder="enter your company name">
+        </div>
+        <div class="form-group">
+          <input type="text" name="designation" [(ngModel)]="experience.designation" class="form-control" #ngModel placeholder="enter your job designation">
+        </div>
+        <div class="form-group">
+          <input type="text" name="time_period" [(ngModel)]="experience.time_period" class="form-control" #ngModel placeholder="enter your company time period">
+        </div>
+        <div class="form-group">
+          <input type="text" name="job_description" [(ngModel)]="experience.job_description" class="form-control" #ngModel placeholder="enter your job description">
+        </div>
+        <div class="form-group">
+          <input type="submit" value="add" class="btn btn-small btn-danger" (click)="experi(experience)">
+        </div>
+        <div class="form-group">
+          <table border="1" *ngIf="tableshow">
+            <tr>
+              <th>
+                companyname
+              </th>
+              <th>
+                designation
+              </th>
+              <th>
+                time period
+              </th>
+              <th>
+                job_description
+              </th>
+            </tr>
+            <tr *ngFor="let item of exparray;let index=index">
+              <td>
+                {{item.companyname}}
+              </td>
+              <td>
+                {{item.designation}}
+              </td>
+              <td>
+                {{item.time_period}}
+              </td>
+              <td>
+                {{item.job_description}}
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="form-group">
+          <h1>publications</h1>
+        </div>
+        <div class="form-group">
+          <input type="text" name="pub_title" [(ngModel)]="publications.pub_title" class="form-control" #ngModel placeholder="enter your publications title">
+        </div>
+        <div class="form-group">
+          <input type="text" name="pub_link" [(ngModel)]="publications.pub_link" class="form-control" #ngModel placeholder="enter your publications link">
+        </div>
+        <div class="form-group">
+          <input type="submit" class="btn btn-small btn-info" value="add" (click)="publication(publications)">
+        </div>
+        <div class="form-group">
+          <table border="2" *ngIf="publicshow">
+            <tr>
+              <th>
+                Title
+              </th>
+              <th>
+                Link
+              </th>
+            </tr>
+            <tr *ngFor="let item of pubarray;let index=index">
+              <td>
+                {{item.pub_title}}
+              </td>
+              <td>
+                {{item.pub_link}}
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="form-group">
+          <h1>Skills</h1>
+        </div>
+        <div class="form-group">
+          <input type="text" name="mobile_development" [(ngModel)]="skills.mobile_development" class="form-control" #ngModel placeholder="enter your mobile dev skill">
+        </div>
+        <div class="form-group">
+          <input type="text" name="web_development" [(ngModel)]="skills.web_development" class="form-control" #ngModel placeholder="enter your web dev skill">
+        </div>
+        <div class="form-group">
+          <input type="text" name="web_designing" [(ngModel)]="skills.web_designing" class="form-control" #ngModel placeholder="enter your web design skill">
+        </div>
+        <div class="form-group">
+          <input type="submit" class="btn btn-small btn-warning" value="add" (click)="skilldata(skills)">
+        </div>
+        <div class="form-group">
+          <table border="2" *ngIf="skillshow">
+            <tr>
+              <th>
+                Mobile development
+              </th>
+              <th>
+                Web development
+              </th>
+              <th>
+                Web designing
+              </th>
+            </tr>
+            <tr *ngFor="let item of skillarray;let index=index">
+              <td>
+                {{item.mobile_development}}
+              </td>
+              <td>
+                {{item.web_development}}
+              </td>
+              <td>
+                {{item.web_designing}}
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="form-group">
+          <h1>Education</h1>
+        </div>
+        <div class="form-group">
+          <select name="education" [(ngModel)]="school.course" #ngModel class="form-control">
+          <option value="10">
+            10
+          </option>
+          <option value="12">
+            12
+          </option>        
+          <option value="college">
+            college
+          </option>        
+        </select>
+        </div>
+        <div class="form-group" *ngIf="school.course=='10'">
+          <div class="form-group">
+            <input type="text" name="college" [(ngModel)]="school.schoolname" class="form-control" #ngModel placeholder="enter your school name">
+          </div>
+          <div class="form-group">
+            <input type="text" name="percentage" [(ngModel)]="school.percentage" class="form-control" #ngModel placeholder="enter your 10 percentage">
+          </div>
+          <div class="form-group">
+            <input type="text" name="completion_year" [(ngModel)]="school.completedyear" class="form-control" #ngModel placeholder="enter the 10 completed year">
+          </div>
+          <div class="form-group">
+            <input type="submit" class="btn btn-small btn-danger" value="add" (click)="ten(school)">
+          </div>
+        </div>
+
+        <div class="form-group" *ngIf="school.course=='12'">
+          <div class="form-group">
+            <input type="text" name="college" [(ngModel)]="school.schoolname" class="form-control" #ngModel placeholder="enter your school name">
+          </div>
+          <div class="form-group">
+            <input type="text" name="percentage" [(ngModel)]="school.percentage" class="form-control" #ngModel placeholder="enter your 12 percentage">
+          </div>
+          <div class="form-group">
+            <input type="text" name="completion_year" [(ngModel)]="school.completedyear" class="form-control" #ngModel placeholder="enter the 12 completed year">
+          </div>
+          <div class="form-group">
+            <input type="submit" class="btn btn-small btn-danger" value="add" (click)="ten(school)">
+          </div>
+        </div>
+
+        <div class="form-group" *ngIf="school.course=='college'">
+          <div class="form-group">
+            <input type="text" name="college" [(ngModel)]="college.collegename" class="form-control" #ngModel placeholder="enter your college name">
+          </div>
+          <div class="form-group">
+            <input type="text" name="percentage" [(ngModel)]="college.percentage" class="form-control" #ngModel placeholder="enter your college percentage">
+          </div>
+          <div class="form-group">
+            <input type="text" name="completion_year" [(ngModel)]="college.completedyear" class="form-control" #ngModel placeholder="enter the college completion year">
+          </div>
+          <div class="form-group">
+            <input type="submit" class="btn btn-small btn-danger" value="add" (click)="twe(college,school.course)">
+          </div>
+        </div>
+        <div class="form-group">
+          <table border="2" *ngIf="tenshow">
+            <tr>
+              <th>
+                course
+              </th>
+              <th>
+                studied
+              </th>
+              <th>
+                percentage
+              </th>
+              <th>
+                completed year
+              </th>
+            </tr>
+            <tr *ngFor="let item of tenarray;let index=index">
+              <td>
+                {{item.course}}
+              </td>
+              <td>
+                {{item.schoolname||item.collegename}}
+              </td>
+              <td>
+                {{item.percentage}}
+              </td>
+              <td>
+                {{item.completedyear}}
+              </td>
+            </tr>
+          </table>
+        </div>
+
+        <div class="form-group">
+          <h1>Contacts</h1>
+        </div>
+        <div class="form-group">
+          <input type="text" name="email" [(ngModel)]="contacts.email" class="form-control" #ngModel placeholder="enter your email id">
+        </div>
+        <div class="form-group">
+          <input type="text" name="website" [(ngModel)]="contacts.website" class="form-control" #ngModel placeholder="enter your website name">
+        </div>
+        <div class="form-group">
+          <input type="number" name="phone" [(ngModel)]="contacts.phone" class="form-control" #ngModel placeholder="enter your contact nymber">
+        </div>
+        <div class="form-group">
+          <input type="text" name="github" [(ngModel)]="contacts.github" class="form-control" #ngModel placeholder="enter your github link">
+        </div>
+        <div class="form-group">
+          <input type="text" name="linkedin" [(ngModel)]="contacts.linkedin" class="form-control" #ngModel placeholder="enter your linkedin link">
+        </div>
+
+
+        <div class="form-group">
+          <h1>Honors</h1>
+        </div>
+        <div class="form-group">
+          <textarea name="name" [(ngModel)]="honors.honorsdata" class="form-control" #ngModel placeholder="enter honor name"></textarea>
+        </div>
+
+
+        <div class="form-group">
+          <input type="submit" class="btn btn-small btn-primary" (click)="sub(contacts,honors,formdata)" data-toggle="modal" data-target="#myModal">         
+        </div>
+
+       
+      </form>
+    </div>
+  </div>
+</div>
+
+
+   <app-resume [dovalue]="jsonvalue" *ngIf="cond">
+  </app-resume> 
+

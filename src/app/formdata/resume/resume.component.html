@@ -1,0 +1,176 @@
+<p>
+  {{dovalue.honors.honorsdata}} {{dovalue.contacts.email}} {{dovalue.contacts.github}} {{dovalue.contacts.linkedin}} {{dovalue.contacts.phone}}
+  {{dovalue.contacts.website}}
+</p>
+
+<div class="container">
+  <div class="form-group">
+    <h1 style="text-align:center;">{{dovalue.formdata.formtitle}}</h1>
+  </div>
+  <div class="form-group">
+  {{dovalue.formdata.name}}
+  </div>  
+  <div class="form-group">
+   <p>Email: </p> {{dovalue.contacts.email}}
+  </div>
+  <div class="form-group">
+   <p>Mobile: </p> {{dovalue.contacts.phone}}
+  </div>  
+   <div class="form-group">
+     <hr>
+   </div>  
+  <div class="form-group">
+    <strong><p>CAREER OBJECTIVE</p></strong>
+  </div>
+  <div class="form-group">
+    <p style="text-indent: 50px;">{{dovalue.formdata.career}}</p>
+  </div>
+  <div class="form-group">
+    <strong><p>Educational Qualification</p></strong>
+  </div>
+  <div class="form-group" style="text-indent: 50px;">
+    <table border="1">
+      <tr>
+        <th>
+          Degree/ Course
+        </th>
+        <th>
+          Institution
+        </th>
+        <th>
+          Year of Passing
+        </th>
+        <th>
+          % or CGPA of  Marks
+        </th>        
+      </tr>
+      <tr *ngFor="let item of dovalue.school">
+        <td>
+          {{item.course}}
+        </td>
+        <td>
+          {{item.schoolname||item.collegename}}
+        </td>
+         <td>
+          {{item.completedyear}}
+        </td>
+        <td>
+          {{item.percentage}}
+        </td>       
+      </tr>
+    </table>
+  </div>
+  <div class="form-group">
+    <strong><p>Technical Skills</p></strong>
+  </div>
+  <div class="form-group">
+    <table border="1">
+      <tr>
+        <th>
+          Mobile Development
+        </th>
+        <th>
+          Web Designing
+        </th>
+        <th>
+          Web Development
+        </th>
+      </tr>
+      <tr *ngFor="let item of dovalue.skills">
+        <td>
+          {{item.mobile_development}}
+        </td>
+        <td>
+          {{item.web_designing}}
+        </td>
+        <td>
+          {{item.web_development}}
+        </td>
+      </tr>
+    </table>
+  </div>
+  <div class="form-group">
+    <strong><p>Publications</p></strong>
+  </div>
+  <div class="form-group">
+    <table border="1">
+      <tr>
+        <th>
+          Publication Title
+        </th>
+        <th>
+          Publication Link
+        </th>
+      </tr>
+      <tr *ngFor="let item of dovalue.publications">
+        <td>
+          {{item.pub_title}}
+        </td>
+        <td>
+          {{item.pub_link}}
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="form-group">
+    <strong><p>Honors</p></strong>
+  </div>
+  <div class="form-group">
+    {{honors.honorsdata}}
+  </div>
+    <div class="form-group">
+    <strong><p>Experience</p></strong>
+  </div>
+<div class="form-group">
+  <table border="1">
+      <tr>
+        <th>
+          Company Name
+        </th>
+        <th>
+          Job Designation
+        </th>
+        <th>
+          Company working experience time period
+        </th>
+        <th>
+          Job Description
+        </th>
+      </tr>
+      <tr *ngFor="let item of dovalue.experience">
+        <td>
+          {{item.companyname}}
+        </td>
+        <td>
+          {{item.designation}}
+        </td>
+        <td>
+          {{item.time_period}}
+        </td>
+        <td>
+          {{item.job_description}}
+        </td>
+      </tr>
+    </table>
+</div>
+  <div class="form-group">
+    <strong><p>DECLARATION</p></strong>
+  </div>
+  <div class="form-group">
+    <p>I assure that all the mentioned details are true to the best of my knowledge</p>
+  </div>
+  <div class="form-group">
+    <p>Date:</p>
+  </div>
+  <div class="form-group">
+    <div class="row">
+      <div class="col-sm-6">
+        <p>Place:</p>
+      </div>
+      <div class="col-sm-6">
+        <p>(</p><p>{{dovalue.formdata.name}}</p><p>)</p>
+      </div>      
+    </div>    
+  </div>
+</div>
