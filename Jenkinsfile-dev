@@ -1,4 +1,4 @@
-node('dev-1') {
+node('dev_1') {
 
     stage("checkout sourcecode") {
         checkout scm
