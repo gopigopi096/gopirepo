@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {Router } from '@angular/router';
 import {TemplateService} from '../templateResume/template.service';
-vvvvvv
+import * as moment from 'moment';
+
 @Component({
   selector: 'app-templateResume',
   templateUrl: './templateResume.component.html',
