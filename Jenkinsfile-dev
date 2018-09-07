@@ -4,14 +4,6 @@ node('dev_1') {
         checkout scm
     }
 
-     stage("build angular") {
-            try {
-                 sh "./gradlew  buildClientCode"
-                } catch(err) {
-                throw err
-            }
-        }
-
      stage(" generate jacoco report") {
                 try {
                    publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: true, reportDir: 'jacoco', reportFiles: 'index.html', reportName: 'iHms Report', reportTitles: 'iHms Report'])
