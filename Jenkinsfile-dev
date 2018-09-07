@@ -4,12 +4,4 @@ node('dev_1') {
         checkout scm
     }
 
-     stage(" generate jacoco report") {
-                try {
-                   publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: true, reportDir: 'jacoco', reportFiles: 'index.html', reportName: 'iHms Report', reportTitles: 'iHms Report'])
-                } catch(err) {
-                    throw err
-                }
-      }
-
 }
