@@ -3,6 +3,8 @@ import {Router } from '@angular/router';
 import {TemplateService} from '../templateResume/template.service';
 import * as moment from 'moment';
 
+
+
 @Component({
   selector: 'app-templateResume',
   templateUrl: './templateResume.component.html',
