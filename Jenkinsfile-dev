@@ -1,5 +1,6 @@
 node('dev_1') {
-
+  
+  stages {
     stage("checkout sourcecode") {
         checkout scm
     }
@@ -14,5 +15,6 @@ node('dev_1') {
         milestone()
         sh 'ng build --prod --aot --sm --progress=false'
     }
+  }
 
 }
