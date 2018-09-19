@@ -6,9 +6,7 @@ node('dev_1') {
     }
     
     stage("node modules install") {
-        steps {
           sh 'npm install'
-        }
     }
     
     stage('Build') {
