@@ -3,5 +3,16 @@ node('dev_1') {
     stage("checkout sourcecode") {
         checkout scm
     }
+    
+    stage("node modules install") {
+        steps {
+          sh 'npm install'
+        }
+    }
+    
+    stage('Build') {
+        milestone()
+        sh 'ng build --prod --aot --sm --progress=false'
+    }
 
 }
