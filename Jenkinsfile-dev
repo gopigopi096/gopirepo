@@ -7,5 +7,9 @@ node('dev_1') {
     stage("node modules install") {
           sh 'npm install'
     }
+    
+    stage("build project") {
+      sh 'ng build'
+    }
 
 }
